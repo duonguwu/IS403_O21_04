@@ -1,0 +1,23 @@
+Team 4
+Thông tin về dataset:
+Đây là 3 file dataset về giá cổ phiếu của 3 công ty bất động sản:
+ - Dat Xanh Group (DXG) 
+ - Development Investment Construction JSC (DIG)
+ - No Va Land Investment Group Corporation (NVL)
+
+Dữ liệu được lấy từ ngày 01/01/2018 - 22/03/2024 với khung thời gian là Daily ở trang web investing.com.
+
+Tập dữ liệu bao gồm các cột:
+ - Date: Cho biết ngày giao dịch của dữ liệu. (Định dạng: DD/MM/YYYY)
+ - Price: Giá trị cuối cùng của cổ phiếu tại ngày giao dịch.
+ - Open: Giá trị mở cửa của cổ phiếu tại ngày giao dịch.
+ - High: Giá trị cao nhất mà cổ phiếu đã đạt được trong ngày giao dịch.
+ - Low: Giá trị thấp nhất mà cổ phiếu đã đạt được trong ngày giao dịch.
+ - Vol: Khối lượng giao dịch của cổ phiếu trong ngày, được biểu diễn bằng số lượng cổ phiếu được giao dịch (triệu cổ phiếu).
+ - Change %: Phần trăm thay đổi giá trị của cổ phiếu so với ngày giao dịch trước đó.
+Về các dữ liệu liên quan đến giá trị cổ phiếu, đơn vị tiền tệ là VND.
+
+Nguồn dữ liệu: investing.com
+DIG: https://www.investing.com/equities/development-investment-construction
+DXG: https://www.investing.com/equities/dat-xanh-real-estate-service-contr
+NVL: https://www.investing.com/equities/no-va-land-investment-group-corp
