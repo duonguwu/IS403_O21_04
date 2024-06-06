@@ -11,41 +11,43 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{COMPARING ML/DL ALGORITHMS IN
-REAL ESTATE STOCK PRICES ANALYSIS
-AND PREDICTION
+\title{TIME SERIES ANALYSIS FOR REAL ESTATE STOCK PRICE PREDICTION USING ML/DL ALGORITHMS METHODS
+}
+\newcommand{\linebreakand}{%
+  \end{@IEEEauthorhalign}
+  \hfill\mbox{}\par
+  \mbox{}\hfill\begin{@IEEEauthorhalign}
 }
 
 \author{\IEEEauthorblockN{1\textsuperscript{st} Ngo Thuy Yen Nhi}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
+\IEEEauthorblockA{\textit{Team 4 - IS403.O21} \\
 Ho Chi Minh City, Viet Nam \\
 e-mail: 21521230@gm.uit.edu.vn}
 \and
 \IEEEauthorblockN{2\textsuperscript{nd} Nguyen Duong}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
+\IEEEauthorblockA{\textit{Team 4 - IS403.O21} \\
 Ho Chi Minh City, Viet Nam \\
 e-mail: 21521990@gm.uit.edu.vn}
 \and
 \IEEEauthorblockN{3\textsuperscript{rd} Pham Duy Khanh}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
+\IEEEauthorblockA{\textit{Team 4 - IS403.O21} \\
 Ho Chi Minh City, Viet Nam \\
 e-mail: 21522211@gm.uit.edu.vn}
 \and
-\IEEEauthorblockN{4\textsuperscript{th} Nguyen Ngoc Ha My}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-Ho Chi Minh City, Viet Nam \\
-e-mail: 21522351@gm.uit.edu.vn}
+\linebreakand
+    \IEEEauthorblockN{4\textsuperscript{th} Nguyen Ngoc Ha My}
+    \IEEEauthorblockA{\textit{Team 4 - IS403.O21} \\
+    Ho Chi Minh City, Viet Nam \\
+    e-mail: 21522351@gm.uit.edu.vn}
 \and
-\IEEEauthorblockN{5\textsuperscript{th} Le Thuan Hieu}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-Ho Chi Minh City, Viet Nam \\
-e-mail: 21522072@gm.uit.edu.vn}
+    \IEEEauthorblockN{5\textsuperscript{th} Le Thuan Hieu}
+    \IEEEauthorblockA{\textit{Team 4 - IS403.O21} \\
+    Ho Chi Minh City, Viet Nam \\
+    e-mail: 21522072@gm.uit.edu.vn}
 }
+
+
+
 
 \maketitle
 
@@ -54,7 +56,7 @@ Machine learning and deep learning techniques is renowned for playing a pivotal 
 \end{abstract}
 
 \begin{IEEEkeywords}
-Analytic, AR-MOS, Comparison, Efficacy, FEDformer, Kalman Filter, Market capitalization, Prediction, Real estate, ResNet, Stock prices, TBATS, Time-series.
+Analytic, ETS, Comparison, Efficacy, FEDformer, Kalman Filter, Market capitalization, Prediction, Real estate, ResNet, Stock prices, TBATS, Time-series.
 \end{IEEEkeywords}
 
 \section{\textbf{Introduction}}
@@ -307,6 +309,7 @@ TBATS employs trigonometric functions to model multiple seasonalities simultaneo
 
 TBATS models also incorporate ARMA components to manage short-term dynamics and autocorrelations in the residuals, thereby improving forecast accuracy. Additionally, they allow for damping trends, accommodating trends that decrease over time. These features enable TBATS models to effectively handle complex seasonal patterns, nonlinearities, and residual autocorrelations, making them particularly useful for forecasting data with intricate seasonal structures, such as in the case study of forecasting the second wave of the COVID-19 epidemic case study.\cite{b5}
 
+% Dương
 \subsection{ResNet}  
 ResNet (Residual Network) is a type of deep neural network that utilizes residual blocks to enhance performance and mitigate the vanishing gradient problem as the network becomes very deep. Each residual block comprises three convolutional blocks with different kernel sizes, combined with a shortcut connection that adds the initial input to the final output of the block. This ResNet model includes three residual blocks, followed by a global average pooling layer and a fully connected (fc) layer to produce the final output. \cite{b6}
 
@@ -390,12 +393,561 @@ ResNet (Residual Network) is a type of deep neural network that utilizes residua
 
 \end{enumerate}
 
+
+
+
+\section{Experiment}
+
+\begin{figure}[htbp]
+\subsection{ARIMA}
+\centering
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/arima/DIG/7 _ 3/7_3_train_test_DIG_ARIMA_plot.png}
+    \caption{ARIMA DIG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/arima/DIG/8 _ 2/8_2_train_test_DIG_ARIMA_plot.png}
+    \caption{ARIMA DIG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/arima/DIG/9 _ 1/9_1_train_test_DIG_ARIMA_plot.png}
+    \caption{ARIMA DIG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \vspace{0.5cm} % Add vertical space between the sets of figures
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/arima/DXG/7 _ 3/7_3_train_test_DXG_ARIMA_plot.png}
+    \caption{ARIMA DXG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/arima/DXG/8 _ 2/8_2_train_test_DXG_ARIMA_plot.png}
+    \caption{ARIMA DXG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/arima/DXG/9 _ 1/9_1_train_test_DXG_ARIMA_plot.png}
+    \caption{ARIMA DXG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/arima/NVL/7 _ 3/7_3_train_test_NVL_ARIMA_plot.png}
+    \caption{ARIMA NVL 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/arima/NVL/8 _ 2/8_2_train_test_NVL_ARIMA_plot.png}
+    \caption{ARIMA NVL 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/arima/DIG/9 _ 1/9_1_train_test_DIG_ARIMA_plot.png}
+    \caption{ARIMA NVL 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\subsection{ETS}
+\centering
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ets/TEAM4_ETS_DIG_7_3.png}
+    \caption{ETS DIG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ets/TEAM4_ETS_DIG_8_2.png}
+    \caption{ETS DIG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ets/TEAM4_ETS_DIG_9_1.png}
+    \caption{ETS DIG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \vspace{0.5cm} % Add vertical space between the sets of figures
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ets/TEAM4_ETS_DXG_7_3.png}
+    \caption{ETS DXG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ets/TEAM4_ETS_DXG_8_2.png}
+    \caption{ETS DXG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ets/TEAM4_ETS_DXG_9_1.png}
+    \caption{ETS DXG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ets/TEAM4_ETS_NVL_7_3.png}
+    \caption{ETS NVL 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ets/TEAM4_ETS_NVL_8_2.png}
+    \caption{ETS NVL 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ets/TEAM4_ETS_DXG_9_1.png}
+    \caption{ETS NVL 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+\end{figure}
+\newpage
+
+
+\begin{figure}[htbp]
+\subsection{Kalman Filter}
+\centering
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/kf/DIG 7-3.png}
+    \caption{Kalman Filter DIG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/kf/dig 8-2.png}
+    \caption{Kalman Filter DIG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/kf/DIG 9-1.png}
+    \caption{Kalman Filter DIG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \vspace{0.5cm} % Add vertical space between the sets of figures
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/kf/DXG 7-3.png}
+    \caption{Kalman Filter DXG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/kf/DXG 8-2.png}
+    \caption{Kalman Filter DXG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/kf/DXG 9-1.png}
+    \caption{Kalman Filter DXG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/kf/NVL 7-3.png}
+    \caption{Kalman Filter NVL 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/kf/NVL 8-2.png}
+    \caption{Kalman Filter NVL 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/kf/NVL 9-1.png}
+    \caption{Kalman Filter NVL 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\subsection{Resnet}
+\centering
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/resnet/DIG 7_3.png}
+    \caption{ResNet DIG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/resnet/DIG 8_2.png}
+    \caption{ResNet DIG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/resnet/DIG 9_1.png}
+    \caption{ResNet DIG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \vspace{0.5cm} % Add vertical space between the sets of figures
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/resnet/DXG 7_3.png}
+    \caption{ResNet DXG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/resnet/DXG 8_2.png}
+    \caption{ResNet DXG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/resnet/DXG 9_1.png}
+    \caption{ResNet DXG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/resnet/NVL 7_3.png}
+    \caption{ResNet NVL 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/resnet/NVL 8_2.png}
+    \caption{ResNet NVL 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/resnet/NVL 9_1.png}
+    \caption{ResNet NVL 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\subsection{LSTM}
+\centering
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ltsm/Team4_LSTM_DIG_7_3.png}
+    \caption{LSTM DIG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ltsm/Team4_LSTM_DIG_8_2.png}
+    \caption{LSTM DIG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ltsm/Team4_LSTM_DIG_9_1.png}
+    \caption{LSTM DIG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \vspace{0.5cm} % Add vertical space between the sets of figures
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ltsm/Team4_LSTM_DIG_7_3.png}
+    \caption{LSTM DXG 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ltsm/Team4_LSTM_DIG_8_2.png}
+    \caption{LSTM DXG 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ltsm/Team4_LSTM_DXG_9_1.png}
+    \caption{LSTM DXG 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ltsm/Team4_LSTM_NVL_7_3.png}
+    \caption{LSTM NVL 7-3}
+    \label{fig:nvl_boxplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ltsm/Team4_LSTM_NVL_8_2.png}
+    \caption{LSTM NVL 8-2}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/ltsm/Team4_LSTM_NVL_9_1.png}
+    \caption{LSTM NVL 9-1}
+    \label{fig:nvl_histogram}
+    \end{minipage}
+\end{figure}
+
+\newpage
+
 \section{Result}
 
+\subsection{Model Evaluation with NVL Dataset}
+
+\begin{table}[htbp]
+\caption{7-3 Train-Test Ratio}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Evaluation}&\multicolumn{3}{|c|}{\textbf{Evaluation Metric}} \\
+\cline{2-4} 
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MAPE}}& \textbf{\textit{RMSE}} \\
+\hline
+ETS & 10760.862 & 0.6269 & 12282.007\\
+\hline
+TBATS & 47834.0683981406 & 3.07015698344784 & 52333.6378114025\\
+\hline
+Kalman Filter & 248.39356236518 & 0.856696738701653 & 1555.81855814945\\
+\hline
+ResNet & 23998.6308 & 164.0565 & 25054.4035\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+\caption{8-2 Train-Test Ratio}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Evaluation}&\multicolumn{3}{|c|}{\textbf{Evaluation Metric}} \\
+\cline{2-4} 
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MAPE}}& \textbf{\textit{RMSE}} \\
+\hline
+ETS & 12978.866 & 0.8054 & 13836.799\\
+\hline
+TBATS & 5735.10288615056 & 0.350508382672752 & 6267.97272700285\\
+\hline
+Kalman Filter & 139.208035812137 & 0.826768461381157 & 635.126921080275\\
+\hline
+ResNet & 1692.5887 & 9.6903 & 1916.3659\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+\caption{9-1 Train-Test Ratio}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Evaluation}&\multicolumn{3}{|c|}{\textbf{Evaluation Metric}} \\
+\cline{2-4} 
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MAPE}}& \textbf{\textit{RMSE}} \\
+\hline
+ETS & 17005.866 & 0.9134 & 17005.799\\
+\hline
+
+TBATS & 4402,61355422372 & 0,265717832572438 & 4732,26345311019\\
+\hline
+Kalman Filter & 157.422364473748 & 0.865352442266032 & 781.529137493465\\
+\hline
+ResNet & 477.0171 & 3.0175 & 551.2267\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\newpage
+
+\subsection{Model Evaluation with DIG Dataset}
+
+\begin{table}[htbp]
+\caption{7-3 Train-Test Ratio}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Evaluation}&\multicolumn{3}{|c|}{\textbf{Evaluation Metric}} \\
+\cline{2-4} 
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MAPE}}& \textbf{\textit{RMSE}} \\
+\hline
+ETS & 12978.866 & 0.8054 & 13836.799\\
+\hline
+TBATS & 9343.21964965822 & 0.510739796617613 & 10964.3189201992\\
+\hline
+Kalman Filter & 250.027658291219 & 1.14432132503519 & 656,424883089693\\
+\hline
+ResNet & 608.8179 & 2.9155 & 784.8124\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+\caption{8-2 Train-Test Ratio}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Evaluation}&\multicolumn{3}{|c|}{\textbf{Evaluation Metric}} \\
+\cline{2-4} 
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MAPE}}& \textbf{\textit{RMSE}} \\
+\hline
+ETS & 12978.866 & 0.8054 & 13836.799\\
+\hline
+TBATS & 9896.61659039693 & 0.387781985119017 & 10921.9629974825\\
+\hline
+Kalman Filter & 189.295680805776 & 0.863106784469551 & 281.184875988358\\
+\hline
+ResNet & 721.7579 & 2.7584 & 937.6967\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+\caption{9-1 Train-Test Ratio}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Evaluation}&\multicolumn{3}{|c|}{\textbf{Evaluation Metric}} \\
+\cline{2-4} 
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MAPE}}& \textbf{\textit{RMSE}} \\
+\hline
+ETS & 12978.866 & 0.8054 & 13836.799\\
+\hline
+TBATS & 5224.7253334245 & 0.186368637203841 & 5841.84259500596\\
+\hline
+Kalman Filter & 243.1862418430648 & 1.06414241847077 & 670.107588619744\\
+\hline
+ResNet & 1241.8686 & 4.1874 & 1407.7799\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\newpage
+
+\subsection{Model Evaluation with DXG Dataset}
+
+\begin{table}[htbp]
+\caption{7-3 Train-Test Ratio}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Evaluation}&\multicolumn{3}{|c|}{\textbf{Evaluation Metric}} \\
+\cline{2-4} 
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MAPE}}& \textbf{\textit{RMSE}} \\
+\hline
+ETS & 12978.866 & 0.8054 & 13836.799\\
+\hline
+TBATS & 3866.19503802425 & 0.285752003979513 & 4856.4818828459\\
+\hline
+Kalman Filter & 128.100775541209 & 0.815818992436612 & 257.247713610622\\
+\hline
+ResNet & 727.179 & 4.9034 & 887.615\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+\caption{8-2 Train-Test Ratio}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Evaluation}&\multicolumn{3}{|c|}{\textbf{Evaluation Metric}} \\
+\cline{2-4} 
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MAPE}}& \textbf{\textit{RMSE}} \\
+\hline
+ETS & 12978.866 & 0.8054 & 13836.799\\
+\hline
+TBATS & 6577.95858239967 & 0.374391057352586 & 7251.36610969733\\
+\hline
+Kalman Filter & 102.684117168683 & 0.644775423772767 & 161.435022499799\\
+\hline
+ResNet & 653.4036 & 3.6472 & 777.7216\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+\caption{9-1 Train-Test Ratio}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Evaluation}&\multicolumn{3}{|c|}{\textbf{Evaluation Metric}} \\
+\cline{2-4} 
+\textbf{Model} & \textbf{\textit{MAE}}& \textbf{\textit{MAPE}}& \textbf{\textit{RMSE}} \\
+\hline
+TBATS & 2968.83977645444 & 0.158792180656149 & 3259.94230073705\\
+\hline
+Kalman Filter & 109,986961845213 & 0,638855401653012 & 218.915199004979\\
+\hline
+ResNet & 462.8085 & 2.582 & 557.9483\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\newpage
 
 \section*{Acknowledgment}
 
-First and foremost, we would like to express our sincere gratitude to Assoc. Prof. Dr. Nguyen Dinh Thuan and Mr. Nguyen Minh Nhut for their exceptional guidance, expertise, and invaluable feedback throughout the research process. Their mentorship and unwavering support have been instrumental in shaping the direction and quality of this study. Their profound knowledge, critical insights, and attention to detail have significantly contributed to the success of this research. This research would not have been possible without the support and contributions of our mentors. We would like to extend our heartfelt thanks to everyone involved for their invaluable assistance, encouragement, and belief in our research. Thank you all for your invaluable assistance and encouragement.
+% First and foremost, we would like to express our sincere gratitude to Assoc. Prof. Dr. Nguyen Dinh Thuan and Mr. Nguyen Minh Nhut for their exceptional guidance, expertise, and invaluable feedback throughout the research process. Their mentorship and unwavering support have been instrumental in shaping the direction and quality of this study. Their profound knowledge, critical insights, and attention to detail have significantly contributed to the success of this research. This research would not have been possible without the support and contributions of our mentors. We would like to extend our heartfelt thanks to everyone involved for their invaluable assistance, encouragement, and belief in our research. Thank you all for your invaluable assistance and encouragement.
 
 
 
@@ -407,7 +959,8 @@ Principles and Practice. Melbourne: OTexts
 \bibitem{b3} Rim A., GiLang R. A., Sari S. W. Time series forecasting using exponential smoothing to predict the number of website visitor of Sebelas Maret University. (2015b, October 1). IEEE Conference Publication
 \bibitem{b4} Alex Becker (www.kalmanfilter.net). (n.d.). Online kalman filter tutorial. https://www.kalmanfilter.net/multiSummary.html
 \bibitem{b5}Perone, G. (2021). Comparison of ARIMA, ETS, NNAR, TBATS and hybrid models to forecast the second wave of COVID-19 hospitalizations in Italy. the European Journal of Health Economics, 23(6), 917–940. https://doi.org/10.1007/s10198-021-01347-4
-
+\bibitem{b6}Time Series classification from scratch with Deep Neural Networks: A strong baseline | IEEE conference publication | IEEE Xplore, https://ieeexplore.ieee.org/abstract/document/7966039/ (accessed Jun. 6, 2024). 
+\bibitem{b7}Short-term load forecasting based on Resnet and LSTM | IEEE Conference publication | IEEE Xplore, https://ieeexplore.ieee.org/abstract/document/8587554/ (accessed Jun. 6, 2024). 
 \end{thebibliography}
 
 
