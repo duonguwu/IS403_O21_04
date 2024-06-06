@@ -306,6 +306,90 @@ TBATS models are a sophisticated class of time series models that integrate seve
 TBATS employs trigonometric functions to model multiple seasonalities simultaneously, such as daily, weekly, and annual cycles. Moreover, a Box-Cox transformation is applied to stabilize the variance, making the data more suitable for modeling.
 
 TBATS models also incorporate ARMA components to manage short-term dynamics and autocorrelations in the residuals, thereby improving forecast accuracy. Additionally, they allow for damping trends, accommodating trends that decrease over time. These features enable TBATS models to effectively handle complex seasonal patterns, nonlinearities, and residual autocorrelations, making them particularly useful for forecasting data with intricate seasonal structures, such as in the case study of forecasting the second wave of the COVID-19 epidemic case study.\cite{b5}
+
+\subsection{ResNet}  
+ResNet (Residual Network) is a type of deep neural network that utilizes residual blocks to enhance performance and mitigate the vanishing gradient problem as the network becomes very deep. Each residual block comprises three convolutional blocks with different kernel sizes, combined with a shortcut connection that adds the initial input to the final output of the block. This ResNet model includes three residual blocks, followed by a global average pooling layer and a fully connected (fc) layer to produce the final output. \cite{b6}
+
+\begin{enumerate}
+  \item Equations
+  
+  Assume $x$ is the initial input of the residual block. Each convolutional block performs the following transformations:
+  \begin{align*}
+    h_1 &= \text{ReLU}(\text{BN}(\text{Conv1d}(x))) \\
+    h_2 &= \text{ReLU}(\text{BN}(\text{Conv1d}(h_1))) \\
+    h_3 &= \text{BN}(\text{Conv1d}(h_2))
+  \end{align*}
+
+  The output of the residual block is calculated by adding the initial input $x$ to $h_3$ and then applying the ReLU function:
+  \begin{align*}
+    y &= h_3 + x \\
+    \hat{h} &= \text{ReLU}(y)
+  \end{align*}
+
+  The number of filters for the residual blocks is $k_i = \{64, 128, 128\}$.
+
+  \vspace{0.5cm}  % Optional vertical spacing
+
+  ResNet Structure:
+
+  The ResNet structure is as follows: \\
+  \begin{align*}
+    \text{ResNet} &= [\text{ResBlock1}, \text{ResBlock2}, \\
+                    &\quad \text{ResBlock3}, \text{GlobalAvgPooling}, \text{FC}] \cite{b6}
+  \end{align*}
+    
+  \item ResNetLSTM
+  
+    ResNetLSTM combines the ResNet architecture with LSTM (Long Short-Term Memory) to handle time series data. After the inputs are processed through the three residual blocks of ResNet, the output is transformed to be suitable for the LSTM input. LSTM has the ability to remember information across time steps, making the model better suited for handling time series data. Finally, a fully connected layer is used to produce the final output. \cite{b7} \\ 
+    The output of ResNet is calculated as described above. The output from the last residual block is transformed to fit the LSTM input:
+
+    \begin{align*}
+        x_{\text{lstm}} = x.\text{transpose}(1, 2)
+    \end{align*}
+    
+    The LSTM processes the input and returns the output at the last time step:
+    \begin{align*}
+      x_{\text{lstm}}, (h_n, c_n) = \text{LSTM}(x_{\text{lstm}})
+    \end{align*}
+    \begin{align*}
+      x_{\text{final}} = x_{\text{lstm}}[:, -1, :]
+    \end{align*}
+    The final output is computed by the fully connected layer:    \begin{align*}
+      y = \text{FC}(x_{\text{final}})
+    \end{align*}
+
+     
+     The ResNetLSTM structure is as follows: 
+     \begin{align*}
+        \text{ResNetLSTM} = [\text{ResBlock1}, \text{ResBlock2},\\ \text{ResBlock3}, \text{LSTM}, \text{FC}]
+    \end{align*}
+  \item Summary \\
+    ResNet focuses on using residual blocks to increase the depth of the neural network and mitigate the vanishing gradient problem. ResNetLSTM combines the power of ResNet in handling spatial features with the capability of LSTM in remembering and processing temporal features.\\
+    The main difference between the two models lies in the final part of each model:
+    \subsubsection{ResNet}
+    \begin{itemize}
+      \item Uses a global average pooling layer: \\
+        \text{self.global\_avg\_pool} = \text{nn.AdaptiveAvgPool1d}(1)
+      \item The output from the global average pooling layer is fed into the fully connected layer: \\
+        $x = \text{self.fc}(x)$
+    \end{itemize}
+    
+    \subsubsection{ResNetLSTM}
+    \begin{itemize}
+      \item Uses an LSTM layer: 
+        \begin{align*}
+          \text{self.lstm} &= \text{nn.LSTM}(nf \times 2, \text{lstm\_hidden\_units}, \\
+                                          &\quad \text{num\_lstm\_layers}, \text{batch\_first=True})
+        \end{align*}
+      \item The output from the LSTM is taken at the last time step and fed into the fully connected layer: 
+        \begin{align*}
+          x &= x[:, -1, :] \\
+          x &= \text{self.fc}(x)
+        \end{align*}
+    \end{itemize}
+
+\end{enumerate}
+
 \section{Result}
 
 
