@@ -53,7 +53,68 @@ e-mail: 21522211@gm.uit.edu.vn}
 
 
 %======== Khanh ==== TBATS
+\subsection{TBATS}  
+TBATS models are a sophisticated class of time series models that integrate several techniques to address complex data patterns. 
 
+TBATS employs trigonometric functions to model multiple seasonalities simultaneously, such as daily, weekly, and annual cycles. Moreover, a Box-Cox transformation is applied to stabilize the variance, making the data more suitable for modeling.
+
+TBATS models also incorporate ARMA components to manage short-term dynamics and autocorrelations in the residuals, thereby improving forecast accuracy. Additionally, they allow for damping trends, accommodating trends that decrease over time. These features enable TBATS models to effectively handle complex seasonal patterns, nonlinearities, and residual autocorrelations, making them particularly useful for forecasting data with intricate seasonal structures, such as in the case study of forecasting the second wave of the COVID-19 epidemic case study.\cite{b5}
+
+\begin{enumerate}
+    \item \textbf{Box-Cox Transformation (BATS)}:
+    \[
+    y_{t}^{(\omega)} = \begin{cases} 
+    \frac{y_t^\omega - 1}{\omega} & \text{if } \omega \neq 0 \\
+    \ln(y_t) & \text{if } \omega = 0 
+    \end{cases}
+    \]
+    \item \textbf{Trend Component}:
+    \[
+    l_{t} = \ell_{t-1} + \phi \, b_{t-1} + \alpha \, d_{t}  
+    \]
+    \[
+    b_{t} = \phi \, b_{t-1} + \beta \, d_{t}
+    \]
+    \item \textbf{Seasonal Component}:
+    \[
+    s_{t}^{(i)} = \sum_{j=1}^{(k_i)} s_{j,t}^{(i)}
+    \]
+    \[
+    s_{j,t}^{(i)} = s_{j,t-1}^{(i)} \cos \left( \omega_i \right) + s_{j,t-1}^{(i)} \sin \left( \omega_i \right) + \gamma_{1}^{(i)} \, d_{t}
+    \]
+    \[
+    s_{j,t}^{(i)} = - s_{j,t-1}^{(i)} \sin \left( \omega_i \right) + s_{j,t-1}^{(i)} \cos \left( \omega_i \right) + \gamma_{2}^{(i)} \, d_{t}
+    \]
+    \[
+    \omega_i = \frac{2 \pi j}{m_i}
+    \]
+    \item \textbf{Error Component (ARMA)}:
+    \[
+    d_{t} = \sum_{i=1}^{p} \phi_{i} \, d_{t-1} + \sum_{i=1}^{q} \theta_{i} \, e_{t-1} + e_{t}
+    \]
+    \item \textbf{Overall TBATS Model}:
+    \[
+    y_{t}^{(\omega)} = \ell_{t-1} + \phi \, b_{t-1} + \sum_{i=1}^{T} s_{t - m_i}^{(i)} + d_t
+    \]
+
+\textbf{Where:}
+    \begin{itemize}
+        \item  \({\omega}\) is the box-cox transformation.
+        \item \( y_{t} \) is the observation at time \( t \).
+        \item \( \ell_{t} \) is the local level in period \( t \).
+        \item \( b_{t} \) is the short-run trend in period \( t \).
+        \item \( s_{t}^{(i)} \) is the seasonal component at time \( t \).
+        \item \( d_{t} \) is an ARMA(p,q) process.
+        \item \( m_i \) is the length of the \( i \)-th seasonal period.
+        \item \( T \) is the total number of seasonal patterns.
+        \item \( \phi \) is the damping parameter.
+        \item \( \omega_i \) is the frequency parameter for the \( i \)-th seasonal period, calculated as \( \omega_i = \frac{2 \pi j}{m_i} \), where \( j \) is an integer representing the harmonic and \( m_i \) is the length of the seasonal period.
+        \item \( \alpha, \beta \) are smoothing parameters.
+        \item \( \phi_i, \theta_i \) are ARMA(p,q) coefficients.
+        \item \( e_{t} \) is Gaussian white noise.
+        \item \( \gamma_1, \gamma_2 \) are seasonal smoothing parameters (two for each period).
+    \end{itemize}
+\end{enumerate}
 
 
 
