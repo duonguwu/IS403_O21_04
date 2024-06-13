@@ -51,7 +51,49 @@ e-mail: 21522211@gm.uit.edu.vn}
 
 
 
+%My-KalmanFilter
+\subsection{Kalman Filter}
 
+The Kalman Filter is a linear-gaussian state space model used for time series prediction. It was developed by Rudolf E. Kálmán in 1960, especially to handle noisy and fluctuating models. It improves the accuracy of predictions in real-time applications. The main idea of this algorithm is to combine uncertain information from the current time with noisy environmental data in order to create more confident predictions of future events.
+
+This is how Kalman filter works:
+
+Initial estimation: Initialize the initial state $\widehat{x}_{0,0}$ and the initial state covariance matrix $P_{0,0}$.
+
+Iterative process of prediction and measurement update:
+
+\begin{enumerate}
+    \item Prediction
+    \begin{itemize}
+        \item Prediction of the next state
+        \[ \widehat{x}_{n + 1, n} = F\widehat{x}_{n, n} + Gu_{n} \]
+        \item Prediction of the next state uncertainty (error)
+        \[ P_{n + 1, n} = FP_{n, n}F^{T} + Q \]
+    \end{itemize}
+    \item Measurement update
+    \begin{itemize}
+        \item Calculation of the Kalman Gain prediction weight
+        \[ K_{n} = P_{n, n - 1}H^{T}(HP_{n, n - 1}H^{T} + R_{n})^{-1} \]
+        \item Update of the state estimate
+        \[ \widehat{x}_{n, n} = \widehat{x}_{n, n - 1} + K_{n}(Z_{n} - H\widehat{x}_{n, n - 1}) \]
+        \item Update of the estimate uncertainty (error)
+        \[ P_{n, n} = (1 - K_{n}H)P_{n, n - 1}(1 - K_{n}H)^{T} + K_{n}R_{n}K_{n}^{T} \]
+    \end{itemize}
+
+Where:
+    \begin{itemize}
+        \item $x$: The state actor
+        \item $F$: The state transition matrix
+        \item $G$: The control matrix
+        \item $u$: The input variable
+        \item $P$: The covariance matrix
+        \item $H$: The observation matrix
+        \item ${H}^{T}$: The transpose of the observation matrix
+        \item $K$: The Kalman Gain
+        \item $R$: The measurement covariance matrix
+        \item $z$: The vector measurement
+    \end{itemize}
+\end{enumerate}
 %======== Khanh ==== TBATS
 \subsection{TBATS}  
 TBATS models are a sophisticated class of time series models that integrate several techniques to address complex data patterns. 
